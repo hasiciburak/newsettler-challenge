@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import successIcon from "../../assets/icon-success.svg";
 const StayUpdated = ({ setMailSubmitted }) => {
   const preIcon = <img src={successIcon} width={30} />;
+  useEffect(() => {
+    document.title = "Stay Updated!";
+  }, []);
+
   return (
     <div className="card-container">
       {/* LEFT COLUMN */}

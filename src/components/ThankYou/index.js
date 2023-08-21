@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import successImg from "../../assets/icon-success.svg";
 const ThankYou = ({ setMailSubmitted }) => {
+  useEffect(() => {
+    document.title = "Thank You";
+  }, []);
   return (
     <div className="thank-you-container">
       <img src={successImg} alt="" />

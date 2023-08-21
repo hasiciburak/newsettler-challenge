@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+$gray-25: rgba(25, 24, 43, 0.25);
+$pale-navy: #36384d;
+$dark-navy: #242742;
+$gradient: linear-gradient(225deg, #ff6a3a 0%, #ff527b 100%);
+$shadow-1: 0px 16px 32px 0px rgba(255, 97, 85, 0.5);
+$shadow-2: 0px 15px 60px 0px rgba(0, 0, 0, 0.25);
+
+$vermellion: #ff6155;
+
+$regular-size: 16px;
+
+.App {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  background-color: $pale-navy;
+}
+
+*,
+*::before,
+*::after {
+  font-family: "Roboto", sans-serif;
+}
+
+button {
+  background: $dark-navy;
+  color: white;
+  border: none;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    background: $gradient;
+    box-shadow: $shadow-1;
+  }
+}
+
+// STAY UPDATED PAGE
+
+.card-container {
+  background-color: white;
+  width: 100%;
+  max-width: 928px;
+  border-radius: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 48px;
+  padding: $regular-size;
+  box-shadow: $shadow-2;
+}
+
+.card-left-col,
+.card-right-col {
+  width: 50%;
+}
+
+.card-left-col {
+  padding-left: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & > p,
+  & > ul > li {
+    font-size: $regular-size;
+    color: $dark-navy;
+    line-height: 150%;
+  }
+
+  & ul {
+    padding-left: 0px;
+    list-style-type: none;
+    margin-left: 0px;
+    margin-top: 24px;
+  }
+  & li {
+    display: flex;
+    gap: $regular-size;
+  }
+  & img {
+    width: 21px;
+  }
+}
+
+.stay-updated,
+.thanks {
+  color: $dark-navy;
+  font-size: 56px;
+  line-height: 100%;
+}
+
+.join-text {
+  margin-top: 24px;
+}
+
+.card-image {
+  background: url("./assets/illustration-sign-up-desktop.svg");
+  background-size: cover;
+  height: 593px;
+  border-radius: $regular-size;
+  background-repeat: no-repeat;
+
+  object-fit: cover;
+}
+
+.email-address {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+
+  label {
+    color: $dark-navy;
+    font-feature-settings: "clig" off, "liga" off;
+    /* Body Small */
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 18px */
+  }
+
+  input {
+    margin-top: 8px;
+    padding: 16px 24px;
+    border: none;
+    outline: 1px solid $gray-25;
+    font-size: $regular-size;
+    border-radius: 8px;
+    color: $dark-navy;
+  }
+
+  input::placeholder {
+    color: $dark-navy;
+    font-size: 16px;
+  }
+
+  & input:focus {
+    outline-color: $dark-navy;
+  }
+}
+
+.subscribe-area {
+  margin-top: 40px;
+}
+
+// THANK YOU PAGE
+
+.thank-you-container {
+  padding-top: 48px;
+  padding-bottom: 64px;
+  padding-left: 64px;
+  padding-right: 64px;
+  background-color: white;
+  border-radius: 36px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: $shadow-2;
+}
+
+.thanks {
+  margin-top: 40px;
+}
+
+.confirmation {
+  margin-top: 24px;
+}
+
+.dismiss-btn {
+  margin-top: 40px;
+}

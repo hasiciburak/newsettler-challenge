@@ -78,11 +78,12 @@ button {
     padding-left: 0px;
     list-style-type: none;
     margin-left: 0px;
-    margin-top: 24px;
+    margin-top: 14px;
   }
   & li {
     display: flex;
     gap: $regular-size;
+    margin-top: 10px;
   }
   & img {
     width: 21px;

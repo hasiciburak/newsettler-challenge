@@ -5,12 +5,18 @@ import { useState } from "react";
 
 function App() {
   const [mailSubmitted, setMailSubmitted] = useState(false);
+  const [email, setEmail] = useState("");
+
   return (
     <div className="App">
       {mailSubmitted ? (
-        <ThankYou setMailSubmitted={setMailSubmitted} />
+        <ThankYou setMailSubmitted={setMailSubmitted} email={email} />
       ) : (
-        <StayUpdated setMailSubmitted={setMailSubmitted} />
+        <StayUpdated
+          setMailSubmitted={setMailSubmitted}
+          email={email}
+          setEmail={setEmail}
+        />
       )}
     </div>
   );

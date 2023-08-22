@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from "react";
 import successIcon from "../../assets/icon-success.svg";
-const StayUpdated = ({ setMailSubmitted }) => {
+const StayUpdated = ({ setMailSubmitted, email, setEmail }) => {
+  const [error, setError] = useState(false);
+  // Icon image for list items
   const preIcon = <img src={successIcon} width={30} />;
+  // Regex pattern for email
+  const pattern =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const validateEmail = (email) => {
+    return String(email).toLowerCase().match(pattern);
+  };
+
   useEffect(() => {
     document.title = "Stay Updated!";
   }, []);
@@ -30,12 +39,40 @@ const StayUpdated = ({ setMailSubmitted }) => {
         </ul>
 
         <div className="email-address">
-          <label htmlFor="">Email address</label>
-          <input type="text" placeholder="email@company.com" />
+          <div className="email-pre-input">
+            <p>Email address</p>
+            {error && <p className="error-text">Valid email required</p>}
+          </div>
+          <input
+            className={error ? "email-error" : ""}
+            type="text"
+            placeholder="email@company.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                if (validateEmail(email)) {
+                  setMailSubmitted((pre) => !pre);
+                  setError(false);
+                } else {
+                  setError(true);
+                }
+              }
+            }}
+          />
         </div>
 
         <div className="subscribe-area">
-          <button onClick={() => setMailSubmitted((pre) => !pre)}>
+          <button
+            onClick={() => {
+              if (validateEmail(email)) {
+                setMailSubmitted((pre) => !pre);
+                setError(false);
+              } else {
+                setError(true);
+              }
+            }}
+          >
             Subscribe to monthly newsettler
           </button>
         </div>

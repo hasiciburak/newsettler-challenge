@@ -8,6 +8,7 @@ $shadow-1: 0px 16px 32px 0px rgba(255, 97, 85, 0.5);
 $shadow-2: 0px 15px 60px 0px rgba(0, 0, 0, 0.25);
 
 $vermellion: #ff6155;
+$vermellion-15: rgba(255, 96, 85, 0.15);
 
 $regular-size: 16px;
 
@@ -111,12 +112,13 @@ button {
   object-fit: cover;
 }
 
-.email-address {
+.email-pre-input {
   display: flex;
-  flex-direction: column;
-  margin-top: 40px;
-
-  label {
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  p {
     color: $dark-navy;
     font-feature-settings: "clig" off, "liga" off;
     /* Body Small */
@@ -125,6 +127,15 @@ button {
     font-weight: 700;
     line-height: 150%; /* 18px */
   }
+  .error-text {
+    color: $vermellion;
+  }
+}
+
+.email-address {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
 
   input {
     margin-top: 8px;
@@ -143,6 +154,14 @@ button {
 
   & input:focus {
     outline-color: $dark-navy;
+  }
+  & .email-error {
+    color: $vermellion;
+    background-color: $vermellion-15;
+    outline: 1px solid $vermellion;
+  }
+  & .email-error::placeholder {
+    color: $vermellion;
   }
 }
 
